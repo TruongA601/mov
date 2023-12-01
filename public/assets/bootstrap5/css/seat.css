@@ -1,0 +1,102 @@
+.container-seat {
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+
+.seat {
+  background-color: #444451;
+  height: 25px;
+  width: 25px;
+  margin: 3px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.seat.available {
+  background-color: #444451;
+}
+
+.seatbd {
+  width:45rem;
+  background-color: #eeeff2;
+}
+
+.seat.booked {
+  background-color: #b2b2b2;
+}
+
+.seat.disabled {
+  background-color: #710000;
+}
+
+.seat.selected {
+  background-color: #6feaf6;
+
+}
+
+/* .seat:nth-of-type(5) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(5) {
+  margin-left: 18px;
+} */
+
+.seat:not(.booked):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.booked):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
+
+}
+
+.screen {
+  background-color: #ffffff;
+  height: 50px;
+  width: 100%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.75);
+  text-align: center;
+  font-size: 25px;
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #0acc48c2;
+}
