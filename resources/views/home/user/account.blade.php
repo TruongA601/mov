@@ -298,7 +298,7 @@
                         <div class="content_box" style="padding-top: 0;
                         padding-right: 0;">
                             <div class="content active">
-                                <div class="row mt-3">
+                                <div class="row mt-3" >
                                     <div class="col-md-12"><label class="labels">Username</label><input type="text"
                                             class="form-control" id="username" name="username"
                                             value="{{ $user->username }}">
@@ -325,7 +325,7 @@
                                     </div>
 
                                 </div>
-                                <div class="row mt-3">
+                                <div class="row mt-3" style="margin-bottom: 70px;">
                                     <div class="col">
                                         <button class="btn btn-primary" type="submit">Update</button>
                                         <button type="reset" class="btn btn-outline-secondary">Cancel</button>

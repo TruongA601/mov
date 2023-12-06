@@ -100,6 +100,15 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <div class="card radius-15">
+                                <div class="card-body">
+                                    <div id="topMoviesChart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="card-body">
                             <div class="col-12 col-lg-12">
                                 <div class="card radius-15">
@@ -234,6 +243,53 @@
                 })
                 .catch(error => {
                     console.error('Error fetching yearly revenue data:', error);
+                });
+        });
+    </script>
+    {{-- phim có doanh thu cao nhất --}}
+    <script>
+        $(function() {
+            "use strict";
+            axios.get(`top-movies-chart-data`)
+                .then(response => {
+                    const data = response.data;
+                    // console.log(data);
+                    if (Array.isArray(data.movies)) {
+                        var options = {
+                            series: [{
+                                name: "revenue",
+                                data: data.movies.map(movie => movie.revenue)
+                            }],
+                            chart: {
+                               
+                                type: 'bar',
+                                height: 350
+                            },
+                            title: {
+                            text: "Top Grossing Movies"
+                        },
+                            colors: ["#007bff"],
+                            plotOptions: {
+                                bar: {
+                                    horizontal: true,
+                                }
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            xaxis: {
+                                categories: data.movies.map(movie => movie.name),
+                            }
+                        };
+
+                        var chart = new ApexCharts(document.querySelector("#topMoviesChart"), options);
+                        chart.render();
+                    } else {
+                        console.error('Invalid data format:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching top movies data:', error);
                 });
         });
     </script>

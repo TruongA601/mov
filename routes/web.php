@@ -75,6 +75,7 @@ Route::middleware('admin')->group(function () {
         Route::get('dashboard', 'adminpage')->name('adminpage');
         Route::get('monthly-revenue-chart-data/{year}', 'getMonthlyRevenueChartData');
         Route::get('yearly-revenue-chart-data', 'getYearlyRevenueChartData');
+        Route::get('top-movies-chart-data', 'getTopMoviesChartData');
     });
     Route::controller(accountController::class)->group(function () {
         Route::get('account',  'account')->name('account');

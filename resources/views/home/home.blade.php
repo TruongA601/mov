@@ -96,7 +96,7 @@
             <div class="col-xl-9-mx-0">
                 <br>
                 <div class="title-recomended">
-                    <h6 class="text-head-home">In Cinema</h6>
+                    <h6 class="text-head-home">Now Showing</h6>
                     <a href="{{ route('allmovie') }}" class="title-seeall" style="color:red;">See all ></a>
                 </div>
                 <div class="card">

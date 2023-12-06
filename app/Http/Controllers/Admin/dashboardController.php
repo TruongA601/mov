@@ -8,6 +8,7 @@ use App\Models\Cinema;
 use App\Models\Movie;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 
@@ -67,4 +68,27 @@ class dashboardController extends Controller
             return ['error' => 'Internal Server Error'];
         }
     }
+
+public function getTopMoviesChartData()
+{
+    try {
+        $topMovies = DB::table('booking_detail')
+            ->join('movies', 'booking_detail.movie_id', '=', 'movies.id')
+            ->select('movies.name', DB::raw('SUM(booking_detail.show_price) as revenue'))
+            ->groupBy('movies.name')
+            ->orderByDesc('revenue')
+            ->take(5)
+            ->get();
+
+        $data = [
+            'movies' => $topMovies,
+        ];
+
+        return $data;
+    } catch (\Exception $e) {
+        Log::error('Error processing top movies chart data: ' . $e->getMessage());
+        return ['error' => 'Internal Server Error'];
+    }
+}
+
 }
